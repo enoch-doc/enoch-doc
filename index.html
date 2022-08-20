@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+</head>
+<style>
+    body{
+        background-color: rgb(173, 136, 98);
+        overflow: hidden;
+    }
+    #calc{
+        border: thin solid transparent;
+        border-radius: 20px;
+        box-shadow: 2px 5px 5px 5px gray;
+        height: 82vh;
+        width: 32%;
+        margin: 80px auto;
+        background-color: black;
+    }
+    #screen{
+        background-color: black;
+        height: 29vh;
+        padding: 5px;
+        margin-top: -9px;
+        border-radius: 20px 20px 0 0;
+    }
+    #current{
+        margin-top: -70px;
+        font-size: 2em;
+    }
+    #inner{
+        background-color: rgb(29, 29, 31);
+        border-radius: 20px 20px 17px 17px;
+        margin-top: -20px;
+        height: 55.3vh;
+        display: flex;
+    }
+    .left{
+        display: block;
+        display: inline-block;
+        margin: 20px 17px;
+    }
+    .mid{
+        margin: 20px -1px;
+    }
+    .midright{
+        margin: 20px 10px;       
+    }
+    .midright p{
+        margin: 10px 20px;
+    }
+    .right{
+        margin: 20px 5px;
+    }
+    .right p{
+        margin-top: 11px;
+    }
+    button{
+        margin: 14px 10px;
+        height: 7vh;
+        width: 70px;
+        border: none;
+        border-radius: 9px;
+        text-align: center;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+        font-size: 1.5em;
+        cursor: pointer;
+        background-color: black;
+    }
+    button:active, button:hover{
+        opacity: 0.7;
+    }
+    #display{
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        flex-direction: column;
+        word-wrap: break-word;
+        word-break: break-all;
+        padding: 5px;
+        font-size: 1.8rem;
+        user-select: none;
+    }
+    input{
+        width: 100%;
+        height: 17vh;
+        margin: auto -1px;
+        font-size: 1em;
+        color: white;
+        background-color: black;
+        border: none;
+        display: flex;
+        word-break: break-all;
+        word-wrap: break-word;
+        text-align: right;
+    }
+    #time{
+        background-color: black;
+        width: fit-content;
+        position: relative;
+        z-index: 1;
+        border-radius: 50%;
+        margin: 7px 7px;
+    }
+    #date{
+        color: white;
+        padding: 5px;
+        font-size: 1.5em;
+        font-family: monospace;
+    }
+    #colo{
+        font-size: 1.5em;
+        font-weight: 700;
+        position: absolute;
+        color: white;
+        left: 29px;
+        top: -22px;
+        animation-name: colo;
+        animation-timing-function: ease-in-out;
+        animation-duration: 0.9s;
+        animation-iteration-count: infinite;
+    }
+    center{
+        margin-top: -10px;
+    }
+    @keyframes colo {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+
+    @media screen and (max-width:1300px) {
+        body{
+            background-color: rgb(207, 207, 211);
+        }
+        #calc{
+            width: 45%;
+        }
+    }
+    @media screen and (max-width: 950px) {
+        body{
+            background-color: rgb(226, 218, 224);
+        }
+        #calc{
+            width: 55%;
+        }
+        .left{
+            margin-right: 4px;
+        }
+        .right{
+            margin-right: 15px;
+        }
+    }
+    @media screen and (max-width: 750px) {
+        body{
+            background-color: rgb(161, 161, 165);
+        }
+        #calc{
+            width: 65%;
+        }
+    }
+    @media screen and (max-width: 650px) {
+        body{
+            background-color: rgb(210, 216, 210);
+        }
+        #calc{
+            width: 75%;
+        }
+        .right{
+            margin-right: 0px;
+        }
+        .left{
+            margin-right: 4px;
+        }
+       
+    @media screen and (max-width: 560px) {
+        body{
+            background-color: rgb(173, 136, 98);
+        }
+        #calc{
+            width: 75%;
+        }
+        button{
+            width: 55px;
+            font-size: 1.2em;
+        }
+        #colo{
+            font-size: 1em;
+            top: -12px;
+            left: 23.5px;
+        }
+        #date{
+            font-size: 15px;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        body{
+            background-color: rgb(128, 105, 86);
+        }
+        #inner{
+            height: 44vh;
+        }
+        #calc{
+            height: 65vh;
+        }
+        button{
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            font-weight: 500;
+            font-size: 12px;
+            margin: 6.5px 5px;
+            text-align: center;
+        }
+        .midright p{
+            margin: -1px 0px;
+            font-size: 11px;
+        }
+        img{
+            width: 15px;
+            height: 14px;
+        }
+        svg{
+            width: 15px;
+        }
+        input{
+            height: 18vh;
+            font-size: 20px;
+            font-size: 15px;
+        }
+        #current{
+            font-size: 25px;
+            margin-top: -29px;
+        }
+        .right p{
+            margin-top: 10px;
+            font-size: 10px;
+        }
+        #colo{
+            font-size: 1em;
+        }
+        #date{
+            font-size: 15px;
+        }
+    }
+}
+</style>
+<body onload="show()">
+    <div id="calc">
+        <div id="screen">
+            <div id="time">
+                <p id="colo">:</p>
+                <div id="date"></div>
+               </div>
+            <center>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onclick="lightmode()" class="bi bi-moon" style="cursor: pointer; border-radius: 50%; border: thick solid white; border-width: 4px; background-color: white;" viewBox="0 0 16 16">
+            <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
+        </svg>
+            </svg>
+            <svg onclick="darkmode()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" style="cursor: pointer;  border-radius: 50%; border: thick solid black; border-width: 4px; background-color: black;" class="bi bi-brightness-high-fill" viewBox="0 0 16 16">
+                <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+            </svg>
+           </center>
+        <div style="color: white; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" id="display">
+            <input style="pointer-events: none;" type="text" placeholder="0" id="cac">
+            <div style=" font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" id="current"></div></div>
+        </div>
+        <div id="inner">
+            <div class="left">
+                <button onclick="clr()" style="background-color: rgb(13, 182, 13);">AC</button>
+                <button onclick="number7()">7</button>
+                <button onclick="number4()">4</button>
+                <button onclick="number1()">1</button>
+                <button onclick="numberdec()">.</button>
+            </div>
+            <div class="mid">
+                <button onclick="del()" style="background-color: rgba(175, 168, 168, 0.959);"><img  width="30" height="30" src="delete.png" alt="DEL" style="margin-top: 6px;"></button>
+                <button onclick="number8()">8</button>
+                <button onclick="number5()">5</button>
+                <button onclick="number2()">2</button>
+                <button onclick="number0()">0</button>
+            </div>
+            <div class="midright">
+                <button onclick="sqrt()" style="color: rgb(13, 182, 13);"><p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 1em; font-style: italic;">x²</p></button>
+                <button onclick="number9()">9</button>
+                <button onclick="number6()">6</button>
+                <button onclick="number3()">3</button>
+                <button onclick="numberp()">%</button>
+            </div>
+            <div class="right">
+                <button onclick="operatord()"><p style="color: transparent; text-shadow: 0 0 red;">➗</p></button>
+                <button onclick="operatorm()"><p style="color: transparent; text-shadow: 0 0 red;">✖</p></button>
+                <button onclick="operators()" style="color: red; font-size: 2em; font-family: Verdana, Geneva, Tahoma, sans-serif;">-</button>
+                <button onclick="operatora()" style="color: red; font-size: 1.5em; font-family: Verdana, Geneva, Tahoma, sans-serif; text-align: center;">+</button>
+                <button onclick="display()" style="color: red;">=</button>
+            </div>
+        </div>
+    </div>
+    <script src="caculator.js"></script>
+</body>
+</html>
